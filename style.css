@@ -1,0 +1,1014 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+:root {
+
+    --bg: #0b0f19;
+    --surface: #131b2d;
+    --surface-2: #1b2437;
+
+    --primary: #7C5CFF;
+    --secondary: #44D7B6;
+
+    --text: #ffffff;
+    --text-light: #aeb6ca;
+
+    --border: rgba(255, 255, 255, .08);
+
+    --shadow: 0 20px 45px rgba(0, 0, 0, .35);
+
+    --radius: 18px;
+
+}
+
+
+/* Future Light Mode */
+
+body.light {
+
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface-2: #eef1f8;
+
+    --text: #111827;
+    --text-light: #667085;
+
+    --border: #d9dce5;
+
+}
+
+
+body {
+
+    font-family: 'Outfit', sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #1f2552 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #15384f 0%, transparent 35%),
+        var(--bg);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+}
+
+
+/*CONTAINER*/
+
+.container {
+
+    width: min(1200px, 92%);
+    margin: auto;
+
+}
+
+
+/*NAVBAR*/
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 999;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 5%;
+
+    background: rgba(10, 15, 25, .70);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.logo h2 {
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    color: var(--text-light);
+
+    transition: .35s;
+
+    font-weight: 500;
+
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -6px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: var(--primary);
+
+    transition: .35s;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--text);
+
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+
+/*HERO SLIDER*/
+
+.slider {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin: 45px auto;
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .7),
+            rgba(0, 0, 0, .15),
+            transparent);
+
+    z-index: 5;
+
+}
+
+
+.slider::after {
+
+    content: "Unlimited Movies";
+
+    position: absolute;
+
+    left: 45px;
+
+    bottom: 45px;
+
+    font-size: 3rem;
+
+    font-weight: 800;
+
+    z-index: 10;
+
+    text-shadow: 0 10px 20px rgba(0, 0, 0, .4);
+
+}
+
+
+.slides {
+
+    display: flex;
+
+    transition: transform .7s ease-in-out;
+
+}
+
+
+.slides img {
+
+    min-width: 100%;
+
+    height: 560px;
+
+    object-fit: cover;
+
+}
+
+
+
+
+.slider::before {
+
+    box-shadow:
+
+        inset 0 -120px 120px rgba(0, 0, 0, .45);
+
+}
+
+
+section {
+
+    margin-top: 70px;
+
+}
+
+
+
+/*SECTION TITLE*/
+
+.upcoming-movies h2 {
+
+    font-size: 2rem;
+
+    margin-bottom: 25px;
+
+    font-weight: 700;
+
+    position: relative;
+
+}
+
+
+.upcoming-movies h2::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -10px;
+
+    width: 70px;
+
+    height: 4px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+
+}
+
+/*SEARCH SECTION*/
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 90px 0 70px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 850px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(16px);
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+}
+
+.search-bar input {
+
+    flex: 1;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    padding: 18px;
+
+    font-family: inherit;
+
+}
+
+.search-bar input::placeholder {
+
+    color: var(--text-light);
+
+}
+
+.search-bar button {
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #fff;
+
+    padding: 16px 35px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+
+    transition: .35s;
+}
+
+.search-bar button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(124, 92, 255, .35);
+
+}
+
+.search-bar:focus-within {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(124, 92, 255, .15),
+        0 20px 45px rgba(0, 0, 0, .25);
+
+}
+
+
+/*MOVIE GRID*/
+
+.movie-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 28px;
+
+}
+
+
+/*MOVIE POSTERS*/
+
+.movie-list img {
+
+    width: 100%;
+
+    height: 310px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    cursor: pointer;
+
+    transition: .45s;
+
+    border: 1px solid transparent;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .22);
+
+}
+
+
+/*CARD HOVER*/
+
+.movie-list img:hover {
+
+    transform:
+
+        translateY(-12px) scale(1.04);
+
+    border-color: rgba(124, 92, 255, .45);
+
+    box-shadow:
+
+        0 30px 60px rgba(0, 0, 0, .45),
+
+        0 0 35px rgba(124, 92, 255, .28);
+
+}
+
+
+/*CARD SHINE EFFECT*/
+
+.movie-list img {
+
+    position: relative;
+
+}
+
+
+/*UPCOMING SECTION*/
+
+.upcoming-movies {
+
+    margin-bottom: 90px;
+
+}
+
+
+/*SECTION SUBTITLE*/
+
+.upcoming-movies p {
+
+    color: var(--text-light);
+
+    margin-bottom: 35px;
+
+    line-height: 1.7;
+
+}
+
+
+/*CARD ANIMATION*/
+
+.movie-list img {
+
+    animation: fadeUp .8s ease;
+
+}
+
+
+/*BUTTON EFFECT*/
+
+button {
+
+    transition: .35s;
+
+}
+
+button:active {
+
+    transform: scale(.96);
+
+}
+
+
+/*ANIMATION*/
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/*FOOTER*/
+
+footer {
+
+    margin-top: 120px;
+
+    padding: 70px 8%;
+
+    border-top: 1px solid var(--border);
+
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(255, 255, 255, .03));
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+}
+
+.about {
+
+    max-width: 550px;
+
+}
+
+.about h2 {
+
+    font-size: 2rem;
+
+    margin-bottom: 18px;
+
+}
+
+.about p {
+
+    color: var(--text-light);
+
+    line-height: 1.9;
+
+}
+
+/*BACK TO TOP*/
+
+.back-to-top {
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--secondary));
+
+    transition: .4s;
+
+}
+
+.back-to-top:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(124, 92, 255, .35);
+
+}
+
+
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: var(--bg);
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 50px;
+
+    background: linear-gradient(var(--primary),
+            var(--secondary));
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary);
+
+}
+
+
+::selection {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+
+.slides img {
+
+    animation: heroZoom 15s linear infinite;
+
+}
+
+@keyframes heroZoom {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    100% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 320px;
+
+    height: 320px;
+
+    left: -120px;
+
+    top: 150px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 92, 255, .12);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+}
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+
+    height: 350px;
+
+    right: -120px;
+
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    background: rgba(68, 215, 182, .10);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+}
+
+
+.movie-list img {
+
+    background:
+        linear-gradient(135deg,
+            #1d2436,
+            #111827);
+
+}
+
+
+.movie-list:hover img {
+
+    opacity: .65;
+
+}
+
+.movie-list img:hover {
+
+    opacity: 1;
+
+}
+
+
+.logo {
+
+    cursor: pointer;
+
+}
+
+.logo:hover {
+
+    transform: scale(1.03);
+
+    transition: .3s;
+
+}
+
+.nav-links a {
+
+    letter-spacing: .5px;
+
+}
+
+main {
+
+    padding-bottom: 40px;
+
+}
+
+/*RESPONSIVE - 1024px*/
+
+@media (max-width:1024px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .slides img {
+        height: 460px;
+    }
+
+    .movie-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+}
+
+
+/*RESPONSIVE - 768px*/
+
+@media (max-width:768px) {
+
+    nav {
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 18px 5%;
+
+    }
+
+    .logo h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+    .nav-links {
+
+        gap: 22px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+    .slider {
+
+        border-radius: 20px;
+
+    }
+
+    .slides img {
+
+        height: 340px;
+
+    }
+
+    .slider::after {
+
+        font-size: 2rem;
+
+        left: 25px;
+
+        bottom: 25px;
+
+    }
+
+    .search-bar {
+
+        flex-direction: column;
+
+        padding: 18px;
+
+    }
+
+    .search-bar input {
+
+        width: 100%;
+
+    }
+
+    .search-bar button {
+
+        width: 100%;
+
+    }
+
+    .movie-list {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+
+/*RESPONSIVE - 576px*/
+
+@media (max-width:576px) {
+
+    body {
+
+        font-size: 15px;
+
+    }
+
+    .logo h2 {
+
+        font-size: 1.5rem;
+
+    }
+
+    .nav-links {
+
+        gap: 15px;
+        font-size: .9rem;
+    }
+
+    .slider {
+        margin-top: 30px;
+    }
+
+    .slides img {
+        height: 230px;
+    }
+
+    .slider::after {
+        font-size: 1.3rem;
+        left: 18px;
+        bottom: 18px;
+    }
+
+    .upcoming-movies h2 {
+        font-size: 1.6rem;
+    }
+
+    .search-section {
+        margin: 60px 0;
+    }
+
+    .search-bar {
+        border-radius: 18px;
+    }
+
+    .search-bar input {
+        padding: 15px;
+        font-size: .95rem;
+    }
+
+    .search-bar button {
+        padding: 14px;
+    }
+
+    .movie-list {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-list img {
+        height: 360px;
+    }
+
+    footer {
+        padding: 50px 6%;
+    }
+
+    .about h2 {
+        font-size: 1.5rem;
+    }
+
+    .about p {
+        font-size: .95rem;
+    }
+
+    .back-to-top {
+        width: 100%;
+    }
+}
+
+
+/*LARGE SCREENS*/
+
+@media (min-width:1400px) {
+    .container {
+        max-width: 1350px;
+    }
+
+    .slides img {
+        height: 650px;
+    }
+}
+
+
+/*SMOOTH TRANSITIONS*/
+
+* {
+
+    transition:
+        background .3s,
+        color .3s,
+        border-color .3s;
+
+}
